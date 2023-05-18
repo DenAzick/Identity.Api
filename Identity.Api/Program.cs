@@ -19,6 +19,7 @@ var logger = new LoggerConfiguration()
 
 
 
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
