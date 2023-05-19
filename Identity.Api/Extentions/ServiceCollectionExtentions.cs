@@ -14,7 +14,7 @@ public static class ServiceCollectionExtentions
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
     {
-        var signInKey = System.Text.Encoding.UTF32.GetBytes("JwtBearer:ValidIssuer-");
+        var signInKey = System.Text.Encoding.UTF32.GetBytes("JwtBearer:SigninKey");
 
         options.TokenValidationParameters = new TokenValidationParameters()
         {
