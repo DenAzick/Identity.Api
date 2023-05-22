@@ -1,0 +1,108 @@
+2023-05-19 19:37:01.812 +05:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-19 19:37:02.168 +05:00 [INF] Now listening on: https://localhost:7247
+2023-05-19 19:37:02.169 +05:00 [INF] Now listening on: http://localhost:5041
+2023-05-19 19:37:02.174 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-19 19:37:02.175 +05:00 [INF] Hosting environment: Development
+2023-05-19 19:37:02.175 +05:00 [INF] Content root path: C:\Users\User\Source\Repos\DenAzick\Identity.Api\Identity.Api
+2023-05-19 19:37:08.799 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/swagger/index.html - -
+2023-05-19 19:37:09.513 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/swagger/index.html - - - 200 - text/html;charset=utf-8 720.5084ms
+2023-05-19 19:37:09.549 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/_framework/aspnetcore-browser-refresh.js - -
+2023-05-19 19:37:09.554 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/_vs/browserLink - -
+2023-05-19 19:37:09.562 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 12.5633ms
+2023-05-19 19:37:09.755 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 200.8680ms
+2023-05-19 19:37:10.290 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/swagger/v1/swagger.json - -
+2023-05-19 19:37:10.615 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 325.3109ms
+2023-05-19 19:37:19.133 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/api/Accaunt - -
+2023-05-19 19:37:19.200 +05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-05-19 19:37:19.204 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-05-19 19:37:19.204 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/api/Accaunt - - - 401 0 - 71.6607ms
+2023-05-19 19:37:51.333 +05:00 [INF] Request starting HTTP/2 POST https://localhost:7247/api/Accaunt/signup application/json 127
+2023-05-19 19:37:51.347 +05:00 [INF] Executing endpoint 'Identity.Api.Controllers.AccauntController.SignUp (Identity.Api)'
+2023-05-19 19:37:51.384 +05:00 [INF] Route matched with {action = "SignUp", controller = "Accaunt"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignUp(Identity.Api.Models.CreateUserDto) on controller Identity.Api.Controllers.AccauntController (Identity.Api).
+2023-05-19 19:37:55.367 +05:00 [INF] Executed DbCommand (284ms) [Parameters=[@__createUserDto_Username_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[Username] = @__createUserDto_Username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-19 19:37:55.938 +05:00 [INF] Executed DbCommand (259ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [users] ([Id], [Email], [Name], [Password], [Username])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2023-05-19 19:37:55.961 +05:00 [INF] Executing OkObjectResult, writing value of type 'Identity.Api.Models.CreateUserDto'.
+2023-05-19 19:37:55.969 +05:00 [INF] Executed action Identity.Api.Controllers.AccauntController.SignUp (Identity.Api) in 4579.8086ms
+2023-05-19 19:37:55.970 +05:00 [INF] Executed endpoint 'Identity.Api.Controllers.AccauntController.SignUp (Identity.Api)'
+2023-05-19 19:37:55.986 +05:00 [INF] Request finished HTTP/2 POST https://localhost:7247/api/Accaunt/signup application/json 127 - 200 - application/json;+charset=utf-8 4653.0696ms
+2023-05-19 19:38:09.331 +05:00 [INF] Request starting HTTP/2 POST https://localhost:7247/api/Accaunt/signin application/json 52
+2023-05-19 19:38:09.333 +05:00 [INF] Executing endpoint 'Identity.Api.Controllers.AccauntController.SignIn (Identity.Api)'
+2023-05-19 19:38:09.343 +05:00 [INF] Route matched with {action = "SignIn", controller = "Accaunt"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(Identity.Api.Models.SignInDto) on controller Identity.Api.Controllers.AccauntController (Identity.Api).
+2023-05-19 19:38:09.618 +05:00 [INF] Executed DbCommand (206ms) [Parameters=[@__signInDto_Username_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Username]
+FROM [users] AS [u]
+WHERE [u].[Username] = @__signInDto_Username_0
+2023-05-19 19:38:09.758 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-05-19 19:38:09.759 +05:00 [INF] Executed action Identity.Api.Controllers.AccauntController.SignIn (Identity.Api) in 415.4138ms
+2023-05-19 19:38:09.759 +05:00 [INF] Executed endpoint 'Identity.Api.Controllers.AccauntController.SignIn (Identity.Api)'
+2023-05-19 19:38:09.760 +05:00 [INF] Request finished HTTP/2 POST https://localhost:7247/api/Accaunt/signin application/json 52 - 200 - text/plain;+charset=utf-8 429.1287ms
+2023-05-19 19:39:06.187 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/api/Accaunt - -
+2023-05-19 19:39:06.242 +05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10503: Signature validation failed. Token does not have a kid. Keys tried: '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-05-19 19:39:06.257 +05:00 [INF] Bearer was not authenticated. Failure message: IDX10503: Signature validation failed. Token does not have a kid. Keys tried: '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2023-05-19 19:39:06.259 +05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-05-19 19:39:06.262 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-05-19 19:39:06.262 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/api/Accaunt - - - 401 0 - 74.9044ms
+2023-05-19 19:39:24.635 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/api/Accaunt - -
+2023-05-19 19:39:24.637 +05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10503: Signature validation failed. Token does not have a kid. Keys tried: '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-05-19 19:39:24.637 +05:00 [INF] Bearer was not authenticated. Failure message: IDX10503: Signature validation failed. Token does not have a kid. Keys tried: '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2023-05-19 19:39:24.642 +05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-05-19 19:39:24.642 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-05-19 19:39:24.643 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/api/Accaunt - - - 401 0 - 8.0402ms
+2023-05-19 19:48:45.858 +05:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-19 19:48:46.113 +05:00 [INF] Now listening on: https://localhost:7247
+2023-05-19 19:48:46.113 +05:00 [INF] Now listening on: http://localhost:5041
+2023-05-19 19:48:46.117 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-19 19:48:46.118 +05:00 [INF] Hosting environment: Development
+2023-05-19 19:48:46.118 +05:00 [INF] Content root path: C:\Users\User\Source\Repos\DenAzick\Identity.Api\Identity.Api
+2023-05-19 19:48:46.406 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/swagger/index.html - -
+2023-05-19 19:48:46.706 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/swagger/index.html - - - 200 - text/html;charset=utf-8 302.6023ms
+2023-05-19 19:48:47.009 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/_vs/browserLink - -
+2023-05-19 19:48:47.009 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/_framework/aspnetcore-browser-refresh.js - -
+2023-05-19 19:48:47.017 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 7.5209ms
+2023-05-19 19:48:47.044 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 35.0601ms
+2023-05-19 19:48:47.142 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7247/swagger/v1/swagger.json - -
+2023-05-19 19:48:47.334 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7247/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 191.5290ms

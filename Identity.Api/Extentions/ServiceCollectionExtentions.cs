@@ -13,23 +13,23 @@ public static class ServiceCollectionExtentions
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
-    {
-        var signInKey = System.Text.Encoding.UTF32.GetBytes("JwtBearer:SigninKey");
+            {
+                var signInKey = System.Text.Encoding.UTF32.GetBytes("JwtBearer:SigninKey");
 
-        options.TokenValidationParameters = new TokenValidationParameters()
-        {
-            ValidIssuer = configuration["JwtBearer:ValidIssuer"],
-            ValidAudience = configuration["JwtBearer:ValidAudience"],
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            IssuerSigningKey = new SymmetricSecurityKey(signInKey),
-            ValidateIssuerSigningKey = true,
-            ValidateLifetime = true,
-            ClockSkew = TimeSpan.Zero
-        };
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidIssuer = configuration["JwtBearer:ValidIssuer"],
+                    ValidAudience = configuration["JwtBearer:ValidAudience"],
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(signInKey),
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
 
 
-    });
+            });
     }
 
 }
