@@ -61,13 +61,18 @@ builder.Services.AddJwt(builder.Configuration);
 
 var app = builder.Build();
 
-//if (app.Environment.IsDevelopment())
-//{
-    
-//}
+if (app.Environment.IsDevelopment())
+{
+	app.UseSwagger();
+	app.UseSwaggerUI();
+}
 
-app.UseSwagger();
-app.UseSwaggerUI();
+
+
+app.UseCors(c =>
+	c.AllowAnyOrigin()
+		.AllowAnyHeader()
+		.AllowAnyMethod());
 
 app.UseHttpsRedirection();
 

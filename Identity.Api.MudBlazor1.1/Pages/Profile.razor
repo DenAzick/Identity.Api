@@ -1,8 +1,36 @@
 ﻿@page "/Profile"
 
+@using Identity.Api.MudBlazor1.Models
+@using Blazored.LocalStorage
+@inject HttpClient Http
+@inject ILocalStorageService storage
+
 
 <h3>Profile</h3>
 
+@if (user != null)
+{
+	<p>Name : @user?.Name</p>
+}
+else
+{
+	<MudProgressCircular Color="Color.Default" Indeterminate="true" />
+}
+
 @code {
+	User? user;
+
+	protected override async Task OnInitializedAsync()
+	{
+		var token = await storage.GetItemAsStringAsync("token");
+
+		var request = new HttpRequestMessage(HttpMethod.Get, "/api/Account");
+		request.Headers.Add("Authorization", $"Bearer {token}");
+
+		var response = await Http.SendAsync(request);
+
+		user = await response.Content.ReadFromJsonAsync<User>();
+
+	}
 
 }

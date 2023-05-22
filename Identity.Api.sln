@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{1F1A645C-D0E6-4FAD-84BE-37CFFA50AD53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api.MudBlazor1.1", "Identity.Api.MudBlazor1.1\Identity.Api.MudBlazor1.1.csproj", "{896E236D-19AB-4D15-9DC1-04961054995E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.Api.MudBlazor1", "Identity.Api.MudBlazor1.1\Identity.Api.MudBlazor1.csproj", "{896E236D-19AB-4D15-9DC1-04961054995E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
