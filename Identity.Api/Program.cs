@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
 using Serilog.Extensions.Logging;
+using Identity.Api.MiddleWares;
 
 
 var builder = WebApplication.CreateBuilder(args);
